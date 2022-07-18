@@ -16,7 +16,7 @@ const devServer = (isDev) => (!isDev ? {}
     },
   });
 
-module.exports = ({develop}) => ({
+module.exports = ({ develop }) => ({
   mode: develop ? 'development' : 'production',
   devtool: develop ? 'inline-source-map' : false,
   entry: './src/index.ts',
@@ -26,9 +26,9 @@ module.exports = ({develop}) => ({
     assetModuleFilename: (pathData) => {
       const filepath = path
         .dirname(pathData.filename)
-        .split("/")
+        .split('/')
         .slice(1)
-        .join("/");
+        .join('/');
       return `${filepath}/[name].[ext][query]`;
     },
   },
@@ -51,7 +51,7 @@ module.exports = ({develop}) => ({
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
-    ]
+    ],
   },
   resolve: {
     extensions: ['.js', '.ts'],

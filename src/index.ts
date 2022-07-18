@@ -1,8 +1,18 @@
 import './style.css';
-import { Restaurants } from './scripts/renderRestaurants';
 import { Auth } from './scripts/auth';
-import { Menu } from "./scripts/menu";
+import { Cart } from './scripts/cart';
+import { SearchRestaurant } from './scripts/searchRestaurant';
+import { SortRestaurants } from './scripts/sortRestaurants';
+import { SortDishes } from './scripts/sortDishes';
+import { SearchDish } from './scripts/searchDish';
 
-Restaurants.getRestaurants();
 Auth.auth();
-Menu.menu();
+Cart.cart();
+if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+  SearchRestaurant.search();
+  SortRestaurants.start();
+}
+if (window.location.pathname === '/restaurant.html') {
+  SortDishes.start();
+  SearchDish.search();
+}

@@ -20,11 +20,12 @@
     "rules": {
         "no-plusplus": "off",
         "no-console": "warn",
-        "max-len":["warn", 120],
+        "max-len":["warn", 140],
         "@typescript-eslint/no-explicit-any": "error",
         "@typescript-eslint/no-var-requires": 0,
         "import/prefer-default-export": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "no-param-reassign": 0
     }
 }

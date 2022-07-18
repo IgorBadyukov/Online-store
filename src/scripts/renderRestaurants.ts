@@ -11,6 +11,12 @@ export interface IRestaurants {
 export class Restaurants {
   static renderItems = (data: IRestaurants[]): void => {
     const cardsRestaurants = document.querySelector('.cards-restaurants') as HTMLElement;
+    const noRest = document.querySelector('.no-poisk__wrapper') as HTMLElement;
+    cardsRestaurants.innerHTML = '';
+    if (data.length === 0) {
+      noRest.innerHTML = 'таких блюд нет';
+      return;
+    }
     const modalAuth = document.querySelector('.modal-auth') as HTMLElement;
     const userName = document.querySelector('.user-name') as HTMLElement;
 
@@ -50,18 +56,9 @@ export class Restaurants {
         }
       });
 
+      noRest.innerHTML = '';
+
       cardsRestaurants.append(a);
     });
   };
-
-  static getRestaurants(): void {
-    fetch('assets/db/partners.json')
-      .then((response) => response.json())
-      .then((data) => {
-        Restaurants.renderItems(data as IRestaurants[]);
-      })
-      .catch((error: Error) => {
-        throw error;
-      });
-  }
 }

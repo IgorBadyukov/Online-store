@@ -1,3 +1,5 @@
+import { Cart } from './cart';
+
 const buttonAuth = document.querySelector('.button-auth') as HTMLElement;
 const modalAuth = document.querySelector('.modal-auth') as HTMLElement;
 const buttonOut = document.querySelector('.button-out') as HTMLElement;
@@ -9,12 +11,12 @@ const inputPassword = document.getElementById('password') as HTMLInputElement;
 const buttonCart = document.querySelector('.button-cart') as HTMLElement;
 
 export class Auth {
-  static login = (login: string): void => {
+  static login = (user: { login: string, password: string }): void => {
     buttonAuth.style.display = 'none';
     buttonOut.style.display = 'flex';
     userName.style.display = 'flex';
     buttonCart.style.display = 'flex';
-    userName.textContent = login;
+    userName.textContent = user.login;
     modalAuth.style.display = 'none';
   };
 
@@ -38,6 +40,7 @@ export class Auth {
     });
 
     buttonOut.addEventListener('click', (): void => {
+      Cart.resetCart();
       Auth.logout();
     });
 
@@ -48,14 +51,13 @@ export class Auth {
         login: inputLogin.value,
         password: inputPassword.value,
       };
-
       if (user.login === '') {
-        alert('Вы не ввели логин!');
+        alert('Вы не ввели логин!'); // eslint-disable-line no-alert
       } else if (user.password === '') {
-        alert('Вы не ввели пароль!');
+        alert('Вы не ввели пароль!'); // eslint-disable-line no-alert
       } else {
         localStorage.setItem('user', JSON.stringify(user));
-        Auth.login(user.login);
+        Auth.login(user);
       }
     });
 

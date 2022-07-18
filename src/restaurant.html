@@ -14,8 +14,9 @@
 			<a href="index.html" class="logo">
 				<img src="assets/img/icon/logo.svg" alt="Logo" />
 			</a>
-			<label class="address">
-				<input type="text" class="input input-address" placeholder="Адрес доставки" />
+			<label class="option">
+				<input type="search" class="input input-search" placeholder="Найти блюдо"/>
+        <button class="button sort-filter__btn">Отобрать</button>
 			</label>
 			<div class="buttons">
 				<span class="user-name"></span>
@@ -53,32 +54,30 @@
 				<div class="cards cards-menu">
 
 				</div>
+        <div class="no-poisk__wrapper"></div>
 				<!-- /.cards -->
 			</section>
 		</div>
 		<!-- /.container -->
 	</main>
 
-	<footer class="footer">
-		<div class="container">
-			<div class="footer-block">
-				<img src="assets/img/icon/logo.svg" alt="logo" class="logo footer-logo" />
-				<nav class="footer-nav">
-					<a href="#" class="footer-link">Ресторанам </a>
-					<a href="#" class="footer-link">Курьерам</a>
-					<a href="#" class="footer-link">Пресс-центр</a>
-					<a href="#" class="footer-link">Контакты</a>
-				</nav>
-				<div class="social-links">
-					<a href="#" class="social-link"><img src="assets/img/social/instagram.svg" alt="instagram" /></a>
-					<a href="#" class="social-link"><img src="assets/img/social/fb.svg" alt="facebook" /></a>
-					<a href="#" class="social-link"><img src="assets/img/social/vk.svg" alt="vk" /></a>
-				</div>
-				<!-- /.social-links -->
-			</div>
-			<!-- /.footer-block -->
-		</div>
-	</footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-block">
+        <a href="index.html" class="logo">
+          <img src="assets/img/icon/logo.svg" alt="Logo" />
+        </a>
+        <nav class="footer-nav">
+          <a href="https://rs.school/" class="social-link">The Rolling Scopes School 2022</a>
+        </nav>
+        <div class="social-links">
+          <a href="https://github.com/IgorBadyukov" class="social-link">IgorBadyukov</a>
+        </div>
+        <!-- /.social-links -->
+      </div>
+      <!-- /.footer-block -->
+    </div>
+  </footer>
 
 	<div class="modal modal-cart">
 		<div class="modal-dialog">
@@ -129,6 +128,68 @@
 		</div>
 		<!-- /.modal-dialog -->
 	</div>
+  <div class="modal__sort-filter">
+    <div class="modal-dialog">
+      <div class="header__filter-sort">
+        <button class="close__sort-filter">&times;</button>
+      </div>
+
+      <div class="body__filter-sort">
+        <div class="section__sort">
+          <h3 class="sort__title">Сортировать</h3>
+          <div class="radio__wrapper">
+            <input type="radio" id="up" name="sort" checked>
+            <label for="up">В алфавитном порядке</label>
+          </div>
+
+          <div class="radio__wrapper">
+            <input type="radio" id="down" name="sort">
+            <label for="down">В алфавитном порядке (в обратном)</label>
+          </div>
+
+          <div class="radio__wrapper">
+            <input type="radio" id="lowPrice" name="sort">
+            <label for="lowPrice">Сначала самые дешёвые</label>
+          </div>
+
+          <div class="radio__wrapper">
+            <input type="radio" id="highPrice" name="sort">
+            <label for="highPrice">Сначала самые дорогие</label>
+          </div>
+        </div>
+
+        <div class="section__filter">
+          <h3 class="sort__title">Отфильтровать</h3>
+          <div class="price-filter__wrapper">
+            <label for="slider-dish" class="price-label">Цена от <span class="low-price">0</span> до <span class="high-price">1000</span></label>
+            <div class="input__wrapper">
+              <div id="slider-dish"></div>
+            </div>
+          </div>
+          <div class="spiciness-filter__wrapper">
+            <label for="input-nspic">Не острое</label>
+            <input id="input-nspic" class="input-checkbox" type="checkbox">
+            <label for="input-mid" >Среднее</label>
+            <input id="input-mid" class="input-checkbox" type="checkbox">
+            <label for="input-spic">Острое</label>
+            <input id="input-spic" class="input-checkbox" type="checkbox">
+          </div>
+
+          <div class="pop-filter__wrapper">
+            <label for="input-pop">Только популярные блюда</label>
+            <input id="input-pop" type="checkbox">
+          </div>
+
+        </div>
+
+        <div class="filter-btn">
+          <button class="button reset-filter">Сбросить фильтры</button>
+          <button class="button delete-local">Сброс настроек</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
