@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delivery Food — доставка еды на дом</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet" />
+  <link rel="shortcut icon" href="assets/img/icon/diet.png" type="image/x-icon">
+</head>
+
+<body>
+<div class="container">
+  <header class="header">
+    <a class="logo">
+      <img src="assets/img/icon/logo.svg" alt="Logo" />
+    </a>
+    <div class="buttons">
+      <span class="user-name"></span>
+      <button class="button button-primary button-auth">
+        <span class="button-auth-svg"></span>
+        <span class="button-text">Войти</span>
+      </button>
+      <button class="button button-cart" id="cart-button">
+        <span class="button-cart-svg"></span>
+        <span class="button-text">Корзина</span>
+      </button>
+      <button class="button button-primary button-out">
+        <span class="button-text">Выйти</span>
+        <span class="button-out-svg"></span>
+      </button>
+    </div>
+  </header>
+</div>
+<!-- /.container  -->
+
+<main class="main">
+  <div class="container">
+    <section class="container-promo">
+      <section class="promo pizza">
+        <h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
+        <p class="promo-text">
+          Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
+        </p>
+      </section>
+    </section>
+    <section class="restaurants">
+      <div class="section-heading heading-restaurants">
+        <h2 class="section-title">Рестораны</h2>
+        <div class="wrapper__sort-filter">
+          <button class="button sort-filter__btn">Отобрать</button>
+          <label class="search">
+            <input type="search" class="input input-search" placeholder="Поиск ресторанов" />
+          </label>
+        </div>
+      </div>
+      <div class="cards cards-restaurants">
+      </div>
+      <div class="no-poisk__wrapper"></div>
+      <!-- /.cards -->
+    </section>
+  </div>
+  <!-- /.container -->
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-block">
+      <a href="index.html" class="logo">
+        <img src="assets/img/icon/logo.svg" alt="Logo" />
+      </a>
+      <nav class="footer-nav">
+        <a href="https://rs.school/" class="social-link">The Rolling Scopes School 2022</a>
+      </nav>
+      <div class="social-links">
+        <a href="https://github.com/IgorBadyukov" class="social-link">IgorBadyukov</a>
+      </div>
+      <!-- /.social-links -->
+    </div>
+    <!-- /.footer-block -->
+  </div>
+</footer>
+
+<div class="modal modal-cart">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h3 class="modal-title">Корзина</h3>
+      <button class="close">&times;</button>
+    </div>
+    <!-- /.modal-header -->
+    <div class="modal-body">
+    </div>
+    <!-- /.modal-body -->
+    <div class="modal-footer">
+      <span class="modal-pricetag">0 ₽</span>
+      <div class="footer-buttons">
+        <button class="button button-primary">Оформить заказ</button>
+        <button class="button clear-cart">Отмена</button>
+      </div>
+    </div>
+    <!-- /.modal-footer -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div class="modal-auth">
+  <div class="modal-dialog modal-dialog-auth">
+    <button class="close-auth">&times;</button>
+    <form id="logInForm">
+      <fieldset class="modal-body">
+        <legend class="modal-title">Авторизация</legend>
+        <label class="label-auth">
+          <span>Логин</span>
+          <input id="login" type="text">
+        </label>
+        <label class="label-auth">
+          <span>Пароль</span>
+          <input id="password" type="password">
+        </label>
+      </fieldset>
+      <!-- /.modal-body -->
+      <div class="modal-footer">
+        <div class="footer-buttons">
+          <button class="button button-primary button-login" type="submit">Войти</button>
+        </div>
+      </div>
+    </form>
+    <!-- /.modal-footer -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div class="modal__sort-filter">
+  <div class="modal-dialog">
+    <div class="header__filter-sort">
+      <button class="close__sort-filter">&times;</button>
+    </div>
+
+    <div class="body__filter-sort">
+      <div class="section__sort">
+        <h3 class="sort__title">Сортировать</h3>
+        <div class="radio__wrapper">
+          <input type="radio" id="up" name="sort" checked>
+          <label for="up">В алфавитном порядке</label>
+        </div>
+
+        <div class="radio__wrapper">
+          <input type="radio" id="down" name="sort">
+          <label for="down">В алфавитном порядке (в обратном)</label>
+        </div>
+
+        <div class="radio__wrapper">
+          <input type="radio" id="lowPrice" name="sort">
+          <label for="lowPrice">Сначала самые дешёвые</label>
+        </div>
+
+        <div class="radio__wrapper">
+          <input type="radio" id="highPrice" name="sort">
+          <label for="highPrice">Сначала самые дорогие</label>
+        </div>
+      </div>
+
+      <div class="section__filter">
+        <h3 class="sort__title">Отфильтровать</h3>
+        <div class="mark-filter__wrapper">
+          <label for="slider1" class="mark-label">Средняя оценка от <span class="low-mark">3</span> до <span class="high-mark">5</span></label>
+          <div class="input__wrapper">
+            <div id="slider1"></div>
+          </div>
+        </div>
+        <div class="time-filter__wrapper">
+          <label for="slider1" class="time-label">Время доставки от <span class="low-time">30</span> до <span class="high-time">80</span> мин</label>
+          <div class="input__wrapper">
+            <div id="slider2"></div>
+          </div>
+        </div>
+        <div class="type-dish__wrapper">
+          <span>Виды блюд блюдо:&nbsp;</span>
+          <label for="input-sushi">Суши</label>
+          <input id="input-sushi" class="input-checkbox" type="checkbox">
+          <label for="input-pizza">Пицца</label>
+          <input id="input-pizza" class="input-checkbox" type="checkbox">
+          <label for="input-rus">Русская кухня</label>
+          <input id="input-rus" class="input-checkbox" type="checkbox">
+        </div>
+        <div class="price-dish__wrapper">
+          <span>Мнимальная цена за блюдо:&nbsp;</span>
+          <label for="input-low-price">400-700₽</label>
+          <input id="input-low-price" class="input-checkbox" type="checkbox">
+          <label for="input-mid-price">700-1000₽</label>
+          <input id="input-mid-price" class="input-checkbox" type="checkbox">
+          <label for="input-high-price">1000-1200₽</label>
+          <input id="input-high-price" class="input-checkbox" type="checkbox">
+        </div>
+      </div>
+
+      <div class="filter-btn">
+        <button class="button reset-filter">Сбросить фильтры</button>
+        <button class="button delete-local">Cброс настроек</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
